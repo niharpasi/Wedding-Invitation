@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+/* =========================
+   PREMIUM LUXURY ENVELOPE
+========================= */
+
+#envelopeScreen{
+
+  position:fixed;
+  inset:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  background:
+  radial-gradient(circle at top,
+  #f8f1e7 0%,
+  #ead9c2 45%,
+  #d7bea0 100%);
+
+  overflow:hidden;
+
+  z-index:99999;
+
+  transition:1.5s ease;
+}
+
+/* WRAPPER */
+
+.envelope-wrapper{
+
+  position:relative;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  cursor:pointer;
+}
+
+/* GLOW */
+
+.envelope-wrapper::before{
+
+  content:'';
+
+  position:absolute;
+
+  width:700px;
+  height:700px;
+
+  background:
+  radial-gradient(circle,
+  rgba(255,215,150,0.28),
+  transparent 70%);
+
+  filter:blur(35px);
+
+  animation:glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse{
+
+  0%,100%{
+    transform:scale(1);
+    opacity:0.7;
+  }
+
+  50%{
+    transform:scale(1.08);
+    opacity:1;
+  }
+}
+
+/* ENVELOPE */
+
+.envelope{
+
+  position:relative;
+
+  width:92vw;
+  max-width:920px;
+
+  height:60vw;
+  max-height:560px;
+
+  border-radius:24px;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    145deg,
+    #ead8c0,
+    #d8b896
+  );
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.28),
+    inset 0 2px 15px rgba(255,255,255,0.3),
+    inset 0 -8px 18px rgba(0,0,0,0.08);
+}
+
+/* GOLD INNER BORDER */
+
+.envelope::after{
+
+  content:'';
+
+  position:absolute;
+
+  inset:14px;
+
+  border-radius:14px;
+
+  border:
+  1.5px solid rgba(183,140,71,0.5);
+
+  pointer-events:none;
+
+  z-index:5;
+}
+
+/* TOP FLAP */
+
+.envelope::before{
+
+  content:'';
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+  linear-gradient(
+    to bottom,
+    #ecdcc6,
+    #d8bb99
+  );
+
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    50% 58%
+  );
+
+  transform-origin:top;
+
+  transition:1.4s ease;
+
+  z-index:10;
+
+  box-shadow:
+    0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* DECOR SIDE PATTERN */
+
+.fold-line{
+
+  position:absolute;
+
+  top:0;
+
+  width:120px;
+  height:100%;
+
+  opacity:0.07;
+
+  background:
+  repeating-linear-gradient(
+    45deg,
+    #7b4d22,
+    #7b4d22 2px,
+    transparent 2px,
+    transparent 12px
+  );
+
+  z-index:2;
+}
+
+.fold-left{
+  left:0;
+}
+
+.fold-right{
+  right:0;
+  transform:scaleX(-1);
+}
+
+/* REMOVE OLD LINES */
+
+.fold-top,
+.fold-center{
+  display:none;
+}
+
+/* GANESH TEXT */
+
+.ganesh-text{
+
+  position:absolute;
+
+  top:22%;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2.4rem;
+
+  font-weight:700;
+
+  letter-spacing:2px;
+
+  color:#6d3403;
+
+  z-index:15;
+
+  text-align:center;
+
+  text-shadow:
+    0 2px 10px rgba(255,255,255,0.45);
+}
+
+/* WAX SEAL */
+
+.seal{
+
+  position:absolute;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%);
+
+  width:140px;
+  height:140px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(circle at top,
+  #d6a56f,
+  #8f4d2e);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  z-index:20;
+
+  overflow:hidden;
+
+  border:
+  5px solid rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.28),
+    inset 0 5px 12px rgba(255,255,255,0.25),
+    inset 0 -10px 15px rgba(0,0,0,0.15);
+}
+
+/* SEAL IMAGE */
+
+.seal img{
+
+  width:72%;
+  height:72%;
+
+  object-fit:contain;
+}
+
+/* TAP TEXT */
+
+.tap-text{
+
+  margin-top:38px;
+
+  font-family:'Poppins',sans-serif;
+
+  letter-spacing:7px;
+
+  font-size:0.95rem;
+
+  color:#7a5736;
+
+  text-transform:uppercase;
+
+  animation:pulse 2s infinite;
+}
+
+/* OPENING */
+
+.open .envelope::before{
+
+  transform:rotateX(180deg);
+}
+
+.open{
+
+  transform:scale(1.15);
+
+  opacity:0;
+
+  pointer-events:none;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .envelope{
+
+    width:94vw;
+    height:70vw;
+  }
+
+  .ganesh-text{
+
+    font-size:1.3rem;
+
+    width:90%;
+  }
+
+  .seal{
+
+    width:100px;
+    height:100px;
+  }
+
+  .fold-line{
+
+    width:70px;
+  }
+}
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#f7f1e8;
+      color:#4a4035;
+      overflow-x:hidden;
+    }
+
+  section{
+
+  width:100%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+  position:relative;
+}
+
+    /* HERO SECTION */
+
+/* HERO */
+
+/* HERO */
+
+.hero{
+
+  position:fixed;
+
+  inset:0;
+
+  width:100%;
+  height:100vh;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #f6efe6 0%,
+      #efe3d3 38%,
+      #8b5e3c 75%,
+      #5c3922 100%
+    );
+
+  overflow:hidden;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+}
+
+.hero::before{
+
+  content:'';
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+
+    /* TOP REPEATING DECOR */
+    url("assets/top.png");
+
+  background-repeat:repeat-x;
+
+  background-size:auto 400px;
+
+  background-position:top center;
+
+  z-index:3;
+
+  pointer-events:none;
+}
+
+.hero::after{
+
+  content:'';
+
+  position:fixed;
+
+  bottom:0;
+  left:0;
+
+  width:100%;
+  height:120px;
+
+  background-image:url("assets/bottom.png");
+
+  background-repeat:repeat-x;
+
+  background-size:auto 400px;
+
+  background-position:center bottom;
+
+  z-index:3;
+
+  pointer-events:none;
+}
+
+@media(max-width:768px){
+  .hero{
+  background:#8b5e3c;
+}
+
+  .hero::before,
+  .hero::after{
+
+    height:70px;
+
+    background-size:auto 70px;
+  }
+
+}
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.decor{
+
+  position:fixed;
+
+  z-index:3;
+
+  pointer-events:none;
+
+  user-select:none;
+}
+
+/* TOP LEFT */
+
+.top-left{
+
+  top:0px;
+  left:0px;
+
+  width:420px;
+}
+
+/* TOP RIGHT */
+
+.top-right{
+
+  top:0px;
+  right:0px;
+
+  width:420px;
+}
+
+/* LEFT HANGING */
+
+.left-hanging{
+
+  left:0px;
+  top:0%;
+
+  width:320px;
+}
+
+/* RIGHT HANGING */
+
+.right-hanging{
+
+  right:0px;
+  top:0%;
+
+  width:320px;
+}
+
+/* BOTTOM LEFT */
+
+.bottom-left{
+
+  bottom:0px;
+  left:0px;
+
+  width:420px;
+}
+
+/* BOTTOM RIGHT */
+
+.bottom-right{
+
+  bottom:0px;
+  right:0px;
+
+  width:420px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+  /* TOP CORNERS */
+
+  .top-left,
+  .top-right{
+
+    width:240px;
+  }
+
+  /* TOP CENTER */
+
+  .top-center{
+
+  width:1400px;
+
+  top:-20px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+}
+
+  /* LEFT HANGING */
+
+  .left-hanging{
+
+    position:fixed;
+
+    width:340px;
+
+    top:0;
+
+    left:0;
+
+    z-index:20;
+
+    display:block;
+  }
+
+  /* RIGHT HANGING */
+
+  .right-hanging{
+
+    position:fixed;
+
+    width:340px;
+
+    top:0;
+
+    right:0;
+
+    z-index:20;
+
+    display:block;
+  }
+
+  /* BOTTOM CORNERS */
+
+  .bottom-left,
+  .bottom-right{
+
+    width:240px;
+  }
+
+  /* BOTTOM CENTER */
+
+  .bottom-center{
+
+  width:1400px;
+
+  bottom:-20px;
+
+  left:50%;
+
+  transform:translateX(-50%);
+}
+  .left-hanging img,
+  .right-hanging img{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+  }
+}
+/* PREMIUM GLASS CARD */
+
+.card{
+
+  display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:center;
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:950px;
+
+  height:92vh;
+
+  overflow-y:auto;
+
+  overflow-x:hidden;
+
+  scrollbar-width:none;
+
+  padding:70px 40px;
+
+  border-radius:35px;
+
+  background:
+  rgba(255,255,255,0.18);
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
+
+  border:
+  1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 15px 45px rgba(0,0,0,0.22);
+
+  animation:fadeUp 1.5s ease;
+}
+
+/* HIDE SCROLLBAR */
+
+.card::-webkit-scrollbar{
+  display:none;
+}
+  /* SHIMMER EFFECT */
+
+.card::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:-50%;
+  left:-50%;
+
+  width:200%;
+  height:200%;
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+
+  transform:rotate(25deg);
+
+  animation:shine 8s linear infinite;
+}
+
+@media(max-width:768px){
+
+  .card::before{
+    display:none;
+  }
+
+  .card{
+
+    background:#d4b295;
+
+    backdrop-filter:none;
+
+    -webkit-backdrop-filter:none;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    -webkit-overflow-scrolling:touch;
+  }
+
+}
+@keyframes shine{
+
+  0%{
+    transform:
+    translateX(-100%)
+    rotate(25deg);
+  }
+
+  100%{
+    transform:
+    translateX(100%)
+    rotate(25deg);
+  }
+
+}
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+  .invite{
+
+  font-family:'Great Vibes',cursive;
+
+  font-size:3rem;
+
+  color:#4a4035;
+
+  margin-bottom:15px;
+
+  font-weight:400;
+
+  letter-spacing:1px;
+
+  font-style:italic;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,0.18);
+}
+
+    h1{
+      font-family:'Cormorant Garamond',serif;
+      font-size:5rem;
+      font-weight:600;
+      line-height:1.1;
+      color:#5c3922;
+      margin-bottom:0px;
+      text-align:center;
+      width:100%;
+    }
+
+    .and{
+      font-size:2rem;
+      font-family:'Cormorant Garamond',serif;
+      margin:10px 0;
+      color:#a98d74;
+    }
+
+    .subtitle{
+      font-size:1.1rem;
+      line-height:1.8;
+      color:#5c3922;
+      max-width:600px;
+      margin:0 auto 30px;
+      margin-bottom: 0px;
+      text-align:center;
+    }
+
+    .date-box{
+
+  width:100%;
+
+  max-width:700px;
+
+  margin-top:30px;
+
+  margin-bottom:30px;
+
+  padding:22px 28px;
+
+  border:1px solid #d7c3ab;
+
+  border-radius:24px;
+
+  background:
+  rgba(255,255,255,0.35);
+
+  backdrop-filter:blur(10px);
+
+  text-align:center;
+}
+
+    .date-box h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.2rem;
+      margin-bottom:10px;
+      color:#6e5845;
+    }
+
+    .venue{
+      margin-top:20px;
+      font-size:1rem;
+      color:#7a6858;
+    }
+
+    .btns{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border-radius:50px;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.4s;
+      border:1px solid #b79d82;
+    }
+
+    .primary{
+      background:#b79d82;
+      color:white;
+    }
+
+    .primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .secondary{
+      background:transparent;
+      color:#6e5845;
+    }
+
+    .secondary:hover{
+      background:#eee0cf;
+    }
+
+    .countdown{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .time-box{
+      width:100px;
+      height:100px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.5);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      border:1px solid rgba(255,255,255,0.4);
+      animation:glow 4s infinite;
+    }
+
+    @keyframes glow{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-5px);
+      }
+    }
+
+    .time-box span{
+      font-size:2rem;
+      font-weight:600;
+      color:#6e5845;
+    }
+
+    .time-box small{
+      margin-top:5px;
+      color:#7c6857;
+    }
+
+    .footer{
+      position:absolute;
+      bottom:20px;
+      width:100%;
+      text-align:center;
+      font-size:14px;
+      color:#7c6857;
+    }
+
+    .music-btn{
+      position:fixed;
+      top:20px;
+      right:20px;
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      border:none;
+      background:#b79d82;
+      color:white;
+      font-size:22px;
+      cursor:pointer;
+      z-index:999;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    @media(max-width:768px){
+      h1{
+        font-size:3.2rem;
+      }
+
+      .card{
+        padding:45px 20px;
+      }
+
+      .subtitle{
+        font-size:1rem;
+      }
+
+      .time-box{
+        width:80px;
+        height:80px;
+      }
+
+      .time-box span{
+        font-size:1.5rem;
+      }
+    }
+
+/* PREMIUM FADE PHOTO */
+
+.couple-photo{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom: 30px;
+}
+
+.couple-photo img{
+
+  width:100%;
+  max-width:420px;
+
+  height:auto;
+
+  object-fit:cover;
+
+  display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .couple-photo img{
+    max-width:300px;
+  }
+
+}
+
+/* GANESH TEXT ON ENVELOPE */
+
+.ganesh-text{
+
+  position:absolute;
+
+  top:22%;
+  left:50%;
+  font-weight: 700;
+  transform:translateX(-50%);
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2rem;
+
+  letter-spacing:2px;
+
+  color:#5c3922;
+
+  z-index:15;
+
+  text-align:center;
+
+  text-shadow:
+    0 2px 5px rgba(255,255,255,0.4);
+
+  opacity:0.9;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .ganesh-text{
+    font-size:1.2rem;
+    width:90%;
+  }
+
+}
+
+/* EVENTS SECTION */
+
+.events-section{
+
+  margin-top:40px;
+  width:100%;
+}
+
+.events-title{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2.5rem;
+
+  color:#5c3922;
+
+  margin-bottom:30px;
+
+  text-align:center;
+}
+
+/* GRID */
+
+.events-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:20px;
+
+  max-width:700px;
+
+  margin:0 auto;
+}
+@media(max-width:768px){
+
+  .events-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+/* EVENT CARD */
+
+.event-card{
+
+  background:
+  rgba(255,255,255,0.45);
+
+  border:
+  1px solid rgba(255,255,255,0.5);
+
+  border-radius:22px;
+
+  padding:28px 20px;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.06);
+
+  transition:0.4s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+/* TOP GLOW */
+
+.event-card::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:4px;
+
+  background:
+  linear-gradient(to right,
+  #b88a44,
+  #d7b37c);
+}
+
+/* HOVER */
+
+.event-card:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* DATE */
+
+.event-date{
+
+  font-size:0.95rem;
+
+  letter-spacing:2px;
+
+  color:#a67c52;
+
+  margin-bottom:12px;
+
+  text-transform:uppercase;
+}
+
+/* EVENT NAME */
+
+.event-name{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2rem;
+
+  color:#a67c52;
+
+  margin-bottom:12px;
+}
+
+/* TIME */
+
+.event-time{
+
+  font-size:1rem;
+
+  color:#a67c52;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .events-title{
+    font-size:2rem;
+  }
+
+  .event-name{
+    font-size:1.6rem;
+  }
+
+}
+
+.event-venue{
+
+  margin-top:16px;
+
+  font-size:0.95rem;
+
+  line-height:1.6;
+
+  color:#f1dfc7;
+
+  padding-top:14px;
+
+  border-top:
+  1px solid rgba(255,255,255,0.12);
+}
+
+/* =========================
+   RESPONSIVE SCRATCH DATE CARD
+========================= */
+
+.scratch-date-box{
+
+  position:relative;
+
+  width:100%;
+
+  max-width:700px;
+
+  min-height:140px;
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  background:
+  rgba(255,255,255,0.35);
+
+  backdrop-filter:blur(10px);
+
+  border:
+  1px solid rgba(215,195,171,0.7);
+
+  margin-top:30px;
+  margin-bottom:40px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:0;
+}
+
+/* REAL CONTENT */
+
+.date-content{
+
+  position:relative;
+
+  z-index:1;
+
+  width:100%;
+
+  padding:35px 25px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+}
+
+/* DATE TEXT */
+
+.date-content h2{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:clamp(1.1rem, 4vw, 2.6rem);
+
+  line-height:1.5;
+
+  color:#6e5845;
+
+  margin-bottom:10px;
+
+  width:100%;
+
+  word-wrap:break-word;
+}
+
+/* SUBTEXT */
+
+.date-content p{
+
+  font-size:clamp(0.9rem, 2vw, 1.1rem);
+
+  color:#7a6858;
+
+  line-height:1.5;
+}
+
+/* SCRATCH CANVAS */
+
+#dateScratch{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  z-index:5;
+
+  border-radius:28px;
+
+  cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .scratch-date-box{
+
+    min-height:120px;
+
+    border-radius:22px;
+  }
+
+  .date-content{
+
+    padding:28px 16px;
+  }
+
+  #dateScratch{
+
+    border-radius:22px;
+  }
+}
+
+/* EVENT GROUP */
+
+.event-group{
+
+  margin-bottom:45px;
+}
+
+/* DATE TITLE */
+
+.group-date{
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:2rem;
+
+  color:#9d5c06;
+
+  text-align:center;
+
+  margin-bottom:25px;
+}
+
+/* VENUE BOX */
+
+.venue-box{
+
+  margin-top:20px;
+
+  padding:20px;
+
+  border-radius:24px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter:blur(10px);
+
+  text-align:center;
+}
+
+/* VENUE LABEL */
+
+.venue-label{
+
+  font-size:0.9rem;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  color:#864704;
+
+  margin-bottom:10px;
+}
+
+/* VENUE NAME */
+
+.venue-name{
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  color:#864704;
+}
+
+.venue-link{
+
+  color:#864704;
+
+  text-decoration:none;
+
+  transition:0.3s ease;
+
+  display:inline-block;
+}
+
+.venue-link:hover{
+
+  color:#0d28ae;
+
+  transform:translateY(-2px);
+}
+
+/* FLOWER PETALS */
+
+#petal-container{
+
+  position:fixed;
+
+  inset:0;
+
+  pointer-events:none;
+
+  overflow:hidden;
+
+  z-index:9999;
+}
+
+.petal{
+
+  position:absolute;
+
+  top:-50px;
+
+  width:50px;
+  height:50px;
+
+  background-size:contain;
+
+  background-repeat:no-repeat;
+
+  opacity:0.95;
+}
+
+/* FALLING */
+
+@keyframes petalFall{
+
+  from{
+    transform:
+      translateY(-50px)
+      rotate(0deg);
+  }
+
+  to{
+    transform:
+      translateY(110vh)
+      rotate(360deg);
+  }
+}
+
+/* SWING */
+
+@keyframes petalSway{
+
+  0%,100%{
+    margin-left:0;
+  }
+
+  25%{
+    margin-left:calc(var(--sway) * -1);
+  }
+
+  50%{
+    margin-left:var(--sway);
+  }
+
+  75%{
+    margin-left:calc(var(--sway) * -0.5);
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div id="envelopeScreen">
+
+  <div class="envelope-wrapper" onclick="openInvite()">
+
+    <div class="envelope">
+
+      <!-- INNER FOLDS -->
+
+      <div class="fold-line fold-left"></div>
+      <div class="fold-line fold-right"></div>
+      <div class="fold-line fold-top"></div>
+      <div class="fold-line fold-center"></div>
+
+      <!-- GANESH TEXT -->
+      <div class="ganesh-text">
+        " Om Shree Ganeshay Namah "
+      </div>
+
+      <!-- WAX SEAL -->
+
+      <div class="seal">
+        <img src="seal.png" alt="Seal">
+      </div>
+
+    </div>
+
+    <p class="tap-text">Tap Me</p>
+
+  </div>
+
+</div>
+
+<section class="hero">
+  <!-- DECORATIONS -->
+
+<img src="assets/top-left.png" class="decor top-left">
+<img src="assets/top-right.png" class="decor top-right">
+
+<img src="assets/left-hanging.png" class="decor left-hanging">
+<img src="assets/right-hanging.png" class="decor right-hanging">
+
+<img src="assets/bottom-left.png" class="decor bottom-left">
+<img src="assets/bottom-right.png" class="decor bottom-right">
+
+  <div class="card">
+
+    <p class="invite">It's Happening</p>
+
+   <div class="date-box scratch-date-box">
+
+    <!-- SCRATCH LAYER -->
+    <canvas id="dateScratch"></canvas>
+
+    <!-- REAL CONTENT -->
+    <div class="date-content">
+      <h2>24th June | Wednesday | 12:41 PM</h2>
+      <p>Save the Date & Time</p>
+    </div>
+
+  </div>
+
+    <h1>
+      Sanjit Pasi
+      <p class="venue-name">S/O Mahesh & Sapna Pasi</p>
+      <div class="and">&</div>
+      Pritika Bharankar
+      <p class="venue-name">D/O Shashikant & Shweta Bharankar</p>
+    </h1>
+
+    <div class="couple-photo">
+      <img src="mainpicnobg.png" alt="Couple Photo">
+    </div>
+
+    <p class="subtitle">
+      We said "YES" to forever....
+    </p>
+    <p class="subtitle">
+      Join us as we tie the knot and celebrate love, laughter and happily ever after....
+    </p>
+
+    <!-- WEDDING EVENTS -->
+
+<div class="events-section">
+
+  <h2 class="events-title">Wedding Celebrations</h2>
+
+  <div class="events-wrapper">
+
+  <!-- 24 JUNE -->
+
+  <div class="event-group">
+
+    <div class="group-date">
+      24th June Schedule
+    </div>
+
+    <div class="events-grid">
+
+      <div class="event-card">
+
+        <div class="event-name">
+          Wedding Ceremony
+        </div>
+
+        <div class="event-time">
+          12:41 PM
+        </div>
+
+      </div>
+
+      <div class="event-card">
+
+        <div class="event-name">
+          Reception
+        </div>
+
+        <div class="event-time">
+          03:00 PM
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="venue-box">
+
+      <div class="venue-label">
+        Venue for 24th Events
+      </div>
+
+      <div class="venue-name">
+        <a 
+          href="https://www.google.com/maps/place/Jashan+Banquet,+Nerul/@19.022304,73.0184104,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c3fa41f71331:0xff48115235f2fc68!8m2!3d19.022304!4d73.0209853!16s%2Fg%2F11h8fmzw90!5m1!1e4?entry=ttu&g_ep=EgoyMDI2MDUxMC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          class="venue-link"
+        >
+        📍 Jashan Banquet, Seawoods, Navi Mumbai (Tap Me)
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+    <div class="countdown">
+      <div class="time-box">
+        <span id="days">0</span>
+        <small>Days</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">0</span>
+        <small>Hours</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">0</span>
+        <small>Minutes</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">0</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Made with ❤️ for our special day
+  </div>
+
+</section>
+
+<script>
+
+  /* FLOWER PETALS */
+  const petalImages = [
+
+  "assets/petal1.png",
+
+  "assets/petal2.png",
+
+  "assets/petal3.png",
+];
+
+function launchPetals(){
+
+  const container =
+  document.getElementById("petal-container");
+
+  for(let i = 0; i < 70; i++){
+
+    const petal =
+    document.createElement("div");
+
+    petal.classList.add("petal");
+
+    /* RANDOM PETAL IMAGE */
+
+    const randomPetal =
+    petalImages[
+      Math.floor(
+        Math.random() *
+        petalImages.length
+      )
+    ];
+
+    petal.style.backgroundImage =
+    `url(${randomPetal})`;
+
+    /* RANDOM START POSITION */
+
+    petal.style.left =
+    Math.random() * 100 + "vw";
+
+    /* RANDOM SIZE */
+
+    const size =
+    30 + Math.random() * 35;
+
+    petal.style.width =
+    size + "px";
+
+    petal.style.height =
+    size + "px";
+
+    /* RANDOM FALL SPEED */
+
+    const duration =
+    4 + Math.random() * 6;
+
+    /* RANDOM SWAY */
+
+    const swayDuration =
+    2 + Math.random() * 3;
+
+    petal.style.animation =
+    `
+    petalFall ${duration}s linear forwards,
+    petalSway ${swayDuration}s ease-in-out infinite
+    `;
+
+    /* RANDOM DELAY */
+
+    petal.style.animationDelay =
+    `${Math.random()*2}s`;
+
+    /* RANDOM ROTATION */
+
+    petal.style.transform =
+    `rotate(${Math.random()*360}deg)`;
+
+    /* RANDOM OPACITY */
+
+    petal.style.opacity =
+    0.6 + Math.random() * 0.4;
+
+    /* RANDOM SWAY DISTANCE */
+
+    petal.style.setProperty(
+      '--sway',
+      `${20 + Math.random()*100}px`
+    );
+
+    container.appendChild(petal);
+
+    setTimeout(()=>{
+
+      petal.remove();
+
+    },12000);
+  }
+}
+
+  const weddingDate = new Date('June 24, 2026 12:41:00').getTime();
+
+  const countdown = setInterval(() => {
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerHTML = days;
+    document.getElementById('hours').innerHTML = hours;
+    document.getElementById('minutes').innerHTML = minutes;
+    document.getElementById('seconds').innerHTML = seconds;
+
+  },1000);
+
+
+  const music = document.getElementById("bgMusic");
+
+music.volume = 0.5;
+
+function startMusic() {
+
+  music.play().catch((err) => {
+    console.log("Autoplay blocked");
+  });
+
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("touchstart", startMusic);
+}
+
+window.addEventListener("load", () => {
+
+  // Try autoplay
+  music.play().catch(() => {
+
+    // Start after first interaction
+    document.addEventListener("click", startMusic);
+    document.addEventListener("touchstart", startMusic);
+
+  });
+
+});
+
+function openInvite(){
+
+const envelope = document.getElementById("envelopeScreen");
+
+envelope.classList.add("open");
+
+// Start music
+music.play();
+
+setTimeout(() => {
+
+  envelope.style.display = "none";
+
+  document.querySelector(".hero").classList.add("show");
+
+},1200);
+
+}
+
+/* =========================
+   SCRATCH DATE EFFECT
+========================= */
+
+const canvas =
+document.getElementById('dateScratch');
+
+const ctx =
+canvas.getContext('2d');
+
+let scratching = false;
+
+/* RESIZE + DRAW COVER */
+
+function resizeScratch(){
+
+  const rect =
+  canvas.getBoundingClientRect();
+
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+
+  /* RESET MODE */
+
+  ctx.globalCompositeOperation =
+  'source-over';
+
+  /* GOLD LAYER */
+
+  ctx.fillStyle = '#c9a46a';
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  /* TEXT */
+
+  ctx.fillStyle = 'white';
+
+  ctx.textAlign = 'center';
+
+  ctx.textBaseline = 'middle';
+
+  ctx.font =
+  window.innerWidth < 768
+  ? 'bold 16px Poppins'
+  : 'bold 24px Poppins';
+
+  ctx.fillText(
+    'Scratch to Reveal Date',
+    canvas.width / 2,
+    canvas.height / 2
+  );
+}
+
+resizeScratch();
+
+window.addEventListener(
+  'resize',
+  resizeScratch
+);
+
+/* SCRATCH FUNCTION */
+
+function scratch(x, y){
+
+  ctx.globalCompositeOperation =
+  'destination-out';
+
+  ctx.beginPath();
+
+  ctx.arc(
+    x,
+    y,
+    30,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fill();
+
+  checkScratchCompletion();
+}
+
+function checkScratchCompletion(){
+
+  const imageData =
+  ctx.getImageData(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  const pixels =
+  imageData.data;
+
+  let transparent = 0;
+
+  for(let i = 3; i < pixels.length; i += 4){
+
+    if(pixels[i] === 0){
+      transparent++;
+    }
+  }
+
+  const percent =
+  transparent /
+  (canvas.width * canvas.height);
+
+  /* 55% SCRATCHED */
+
+  if(percent > 0.55 && !canvas.dataset.done){
+
+    canvas.dataset.done = "true";
+
+    /* FADE OUT */
+
+    canvas.style.transition =
+    "opacity 0.8s ease";
+
+    canvas.style.opacity = "0";
+
+    setTimeout(()=>{
+
+      canvas.style.display = "none";
+
+    },800);
+
+    /* FLOWERS */
+
+    launchPetals();
+  }
+}
+
+/* GET POINTER POSITION */
+
+function getCoordinates(e){
+
+  const rect =
+  canvas.getBoundingClientRect();
+
+  if(e.touches){
+
+    return {
+      x:
+      e.touches[0].clientX - rect.left,
+
+      y:
+      e.touches[0].clientY - rect.top
+    };
+  }
+
+  return {
+    x:
+    e.clientX - rect.left,
+
+    y:
+    e.clientY - rect.top
+  };
+}
+
+/* DESKTOP */
+
+canvas.addEventListener('mousedown',(e)=>{
+
+  scratching = true;
+
+  const pos =
+  getCoordinates(e);
+
+  scratch(pos.x, pos.y);
+});
+
+canvas.addEventListener('mousemove',(e)=>{
+
+  if(!scratching) return;
+
+  const pos =
+  getCoordinates(e);
+
+  scratch(pos.x, pos.y);
+});
+
+window.addEventListener('mouseup',()=>{
+
+  scratching = false;
+});
+
+/* MOBILE */
+
+canvas.addEventListener('touchstart',(e)=>{
+
+  e.preventDefault();
+
+  scratching = true;
+
+  const pos =
+  getCoordinates(e);
+
+  scratch(pos.x, pos.y);
+
+},{ passive:false });
+
+canvas.addEventListener('touchmove',(e)=>{
+
+  e.preventDefault();
+
+  if(!scratching) return;
+
+  const pos =
+  getCoordinates(e);
+
+  scratch(pos.x, pos.y);
+
+},{ passive:false });
+
+window.addEventListener('touchend',()=>{
+
+  scratching = false;
+});
+
+</script>
+<div id="petal-container"></div>
+</body>
+</html>
